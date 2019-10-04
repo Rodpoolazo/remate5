@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_04_224959) do
+ActiveRecord::Schema.define(version: 2019_10_04_225519) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,23 @@ ActiveRecord::Schema.define(version: 2019_10_04_224959) do
   create_table "auctionnotices", force: :cascade do |t|
     t.text "auction"
     t.integer "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "communes", force: :cascade do |t|
+    t.string "name"
+    t.integer "province_id"
+    t.integer "region_id"
+    t.integer "cod_treasury"
+    t.integer "conara_sii"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "provinces", force: :cascade do |t|
+    t.string "name"
+    t.integer "region_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -44,6 +61,13 @@ ActiveRecord::Schema.define(version: 2019_10_04_224959) do
     t.float "longitude"
     t.float "mt2_land"
     t.float "mt2_built"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "regions", force: :cascade do |t|
+    t.string "name"
+    t.integer "number_region"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
