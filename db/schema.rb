@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_04_224014) do
+ActiveRecord::Schema.define(version: 2019_10_04_224959) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,26 @@ ActiveRecord::Schema.define(version: 2019_10_04_224014) do
   create_table "auctionnotices", force: :cascade do |t|
     t.text "auction"
     t.integer "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "realties", force: :cascade do |t|
+    t.integer "commune_id"
+    t.string "street"
+    t.integer "number_unit"
+    t.string "unit_estate"
+    t.integer "street_type_id"
+    t.string "population_villa"
+    t.integer "condominium_id"
+    t.integer "property_type"
+    t.integer "apple"
+    t.integer "property"
+    t.text "name_realty"
+    t.float "latitude"
+    t.float "longitude"
+    t.float "mt2_land"
+    t.float "mt2_built"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
